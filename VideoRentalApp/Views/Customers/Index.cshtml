@@ -1,0 +1,25 @@
+﻿
+@model IEnumerable<VideoRentalApp.Models.Customer>
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<body>
+    <h2>Customers</h2>
+
+    <table class="table table-bordered table-hover">
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                       <td>@Html.ActionLink(item.Name, "Details", "Customer", new { id = item.Id }, null)</td>
+                </tr>
+            }
+        }
+
+       
+    </table>
+</body>
