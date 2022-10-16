@@ -5,24 +5,38 @@ using System.Web;
 using System.Web.Mvc;
 using VideoRentalApp;
 using VideoRentalApp.Models;
+using System.Data.Entity;
 
 namespace VideoRentalApp.Controllers
 {
     public class CustomersController : Controller
     {
         //GET: Customers
-
-        public ActionResult Index()
+        private ApplicationDbContext _context;
+        public CustomersController()
         {
-            List<Customer> customer = new List<Customer>()
-            {
-                new Customer{Id = 1, Name = "John Hamilton"},
-                new Customer{Id = 2, Name = "Bill Moore"},
-                new Customer{Id = 3, Name = "Rossy Taylor" }
-            };
-
-            return View(customer);
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
         }
 
+        public ViewResult Index()
+        {
+            var customers = _context.Customers.Include(c => c.Membership).ToList();
+            return View(customers);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var customer = _context.Customers.Include(c => c.Membership).SingleOrDefault(c => c.Id == id);
+           // var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customer);
+        }
     }
 }
