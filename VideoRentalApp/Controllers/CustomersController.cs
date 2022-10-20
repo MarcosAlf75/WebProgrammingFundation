@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,7 +21,7 @@ namespace VideoRentalApp.Controllers
         {
             _context.Dispose();
         }
-
+        
         public ViewResult Index()
         {
             var customers = _context.Customers.Include(c => c.Membership).ToList();
@@ -38,5 +38,37 @@ namespace VideoRentalApp.Controllers
             }
             return View(customer);
         }
+
+        /***************** Manipulate Data Without Database ***************/
+        /*
+        public ActionResult Index()
+        {
+
+            List<Customer> customer = new List<Customer>()
+            {
+                new Customer{Id = 1, Name = "John Hamilton"},
+                new Customer{Id = 2, Name = "Bill Moore"},
+                new Customer{Id = 3, Name = "Rossy Taylor" }
+            };
+
+            ViewBag.CustomerCount = customer.Count;
+            ViewData["customers"] = customer;
+            return View();
+            //return View(customer);
+        }
+        public ActionResult Edit(int id)
+        {
+            return Content("Customers/Edit/id==" + id + ")");
+        }
+        public ActionResult Sort(int? id, string sortBy)
+        {
+            if (!id.HasValue)
+                id = 0;
+            if (string.IsNullOrWhiteSpace(sortBy))
+                sortBy = "Name";
+
+            return Content("id == " + id + ", SortBy ==" + sortBy);
+        }
+        */
     }
 }

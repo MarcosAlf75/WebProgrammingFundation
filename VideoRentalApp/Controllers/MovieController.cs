@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using VideoRentalApp.Models;
 using System.Data.Entity;
+using VideoRentalApp.ViewModels;
 
 namespace VideoRentalApp.Controllers
 {
@@ -35,5 +36,23 @@ namespace VideoRentalApp.Controllers
             return View(movies);
         }
 
+        public ActionResult MovieForCustomer()
+        {
+            var movie = new Movie() { Name = "Beautiful Mind", Id = 1 };
+
+            var customers = new List<Customer>
+            {
+                new Customer{Id=1, Name="John"},
+                new Customer{Id=2, Name="Bill"},
+                new Customer{Id=3, Name="Rossy"}
+            };
+
+            var viewModel = new MovieForCustomerViewModel()
+            {
+                Movie = movie,
+                Customers = customers
+            };
+            return View(viewModel);
+        }
     }
 }

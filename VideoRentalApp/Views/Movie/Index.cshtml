@@ -20,6 +20,7 @@
                 <tr>
                     <th>Movie</th>
                     <th>Type</th>
+                    <td>@Html.ActionLink(item.Name, "Details", "Movies", new { id = item.Id }, null)</td>
                 </tr>
             </thead>
             <tbody>
