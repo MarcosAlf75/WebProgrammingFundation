@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VideoRentalApp.Models;
+using System.Data.Entity;
 using VideoRentalApp.ViewModels;
 
 namespace VideoRentalApp.Controllers
@@ -11,25 +12,28 @@ namespace VideoRentalApp.Controllers
     public class MovieController : Controller
     {
         // GET: Movie
-        //public ActionResult Index()
-        //{
-        //    var movie = new Movie()
-        //    {
-        //        Title = "Lord of the Rings I"
-        //    };
-        //    return View(movie);
-        //}
-
-        public ActionResult Index()
+        private ApplicationDbContext _context;
+        public MovieController()
         {
-            List<Movie> movie = new List<Movie>()
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+        public ViewResult Index()
+        {
+            var movies = _context.Movies.Include(c => c.MovieT).ToList();
+            return View(movies);
+        }
+        public ActionResult DetailsMovie(int id)
+        {
+            var movies = _context.Movies.Include(c => c.MovieT).SingleOrDefault(c => c.Id == id);
+            if (movies == null)
             {
-                new Movie{Id = 1, Name = "Harry Poter"},
-                new Movie{Id = 2, Name = "The Girl with the Dragon Tattoo"},
-                new Movie{Id = 3, Name = "Lord of the Rings" }
-            };
-
-            return View(movie);
+                return HttpNotFound();
+            }
+            return View(movies);
         }
 
         public ActionResult MovieForCustomer()
@@ -50,6 +54,5 @@ namespace VideoRentalApp.Controllers
             };
             return View(viewModel);
         }
-
     }
 }

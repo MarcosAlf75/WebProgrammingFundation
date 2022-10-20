@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,7 +21,7 @@ namespace VideoRentalApp.Controllers
         {
             _context.Dispose();
         }
-
+        
         public ViewResult Index()
         {
             var customers = _context.Customers.Include(c => c.Membership).ToList();
@@ -38,7 +38,6 @@ namespace VideoRentalApp.Controllers
             }
             return View(customer);
         }
-
 
         /***************** Manipulate Data Without Database ***************/
         /*

@@ -212,6 +212,50 @@
     <Compile Include="Migrations\202210152054537_NullDOB.designer.cs">
       <DependentUpon>202210152054537_NullDOB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210160224589_Reestart.cs" />
+    <Compile Include="Migrations\202210160224589_Reestart.designer.cs">
+      <DependentUpon>202210160224589_Reestart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210160238260_MovieTable.cs" />
+    <Compile Include="Migrations\202210160238260_MovieTable.designer.cs">
+      <DependentUpon>202210160238260_MovieTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210160243460_MovieTypeTable.cs" />
+    <Compile Include="Migrations\202210160243460_MovieTypeTable.designer.cs">
+      <DependentUpon>202210160243460_MovieTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210160304073_MovieType.cs" />
+    <Compile Include="Migrations\202210160304073_MovieType.designer.cs">
+      <DependentUpon>202210160304073_MovieType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210160312372_UpdateTAbles.cs" />
+    <Compile Include="Migrations\202210160312372_UpdateTAbles.designer.cs">
+      <DependentUpon>202210160312372_UpdateTAbles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210160317421_dropcolumn.cs" />
+    <Compile Include="Migrations\202210160317421_dropcolumn.designer.cs">
+      <DependentUpon>202210160317421_dropcolumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210160320034_PopulateMAndMT.cs" />
+    <Compile Include="Migrations\202210160320034_PopulateMAndMT.designer.cs">
+      <DependentUpon>202210160320034_PopulateMAndMT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210160331050_PopulateMovies.cs" />
+    <Compile Include="Migrations\202210160331050_PopulateMovies.designer.cs">
+      <DependentUpon>202210160331050_PopulateMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210160408038_Restart.cs" />
+    <Compile Include="Migrations\202210160408038_Restart.designer.cs">
+      <DependentUpon>202210160408038_Restart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210160423039_Restart02.cs" />
+    <Compile Include="Migrations\202210160423039_Restart02.designer.cs">
+      <DependentUpon>202210160423039_Restart02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210160438411_Restart03.cs" />
+    <Compile Include="Migrations\202210160438411_Restart03.designer.cs">
+      <DependentUpon>202210160438411_Restart03.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -219,6 +263,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Membership.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\MovieType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\MovieForCustomerViewModel.cs" />
@@ -282,6 +327,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movie\DetailsMovie.cshtml" />
     <Content Include="Views\Movie\MovieForCustomer.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
   </ItemGroup>
@@ -328,6 +375,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210152054537_NullDOB.resx">
       <DependentUpon>202210152054537_NullDOB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160224589_Reestart.resx">
+      <DependentUpon>202210160224589_Reestart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160238260_MovieTable.resx">
+      <DependentUpon>202210160238260_MovieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160243460_MovieTypeTable.resx">
+      <DependentUpon>202210160243460_MovieTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160304073_MovieType.resx">
+      <DependentUpon>202210160304073_MovieType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160312372_UpdateTAbles.resx">
+      <DependentUpon>202210160312372_UpdateTAbles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160317421_dropcolumn.resx">
+      <DependentUpon>202210160317421_dropcolumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160320034_PopulateMAndMT.resx">
+      <DependentUpon>202210160320034_PopulateMAndMT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160331050_PopulateMovies.resx">
+      <DependentUpon>202210160331050_PopulateMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160408038_Restart.resx">
+      <DependentUpon>202210160408038_Restart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160423039_Restart02.resx">
+      <DependentUpon>202210160423039_Restart02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210160438411_Restart03.resx">
+      <DependentUpon>202210160438411_Restart03.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
